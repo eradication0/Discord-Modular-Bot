@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "discord.js": "^10.0.1",
+    "fs": "0.0.1-security"
+},
+  "engines": {
+	"node": ">=6.0.0"
+  },
+}
