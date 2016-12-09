@@ -18,11 +18,7 @@ Modular bot is made to create a simple and easy bot from a clean template. Every
 - Go into the command folder and create a new File.
 - Look into the template file where to put the code
 
-### where do I find my Bot Token?
-1. First login on the discord page
-2. Now go to your applications https://discordapp.com/developers/applications/me
-3. Crate a new Application
-4. Define a name and a Picture
-5. Generate the Token
+### Where do I find my Bot Token and how do I add my bot to my Server?
+https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
 
 -Created by Zer0
