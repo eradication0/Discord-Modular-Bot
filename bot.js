@@ -8,7 +8,6 @@ const bot = new discord.Client() // Creating a new bot instance
 
 console.log('Setup √')
 
-// Looping through all commands
 bot.on('message', (message) => {
 	if (message.author.id === bot.user.id) return // Bot should not listen to himself
 	if (message.content.startsWith('.eval') && message.author.id === 'YOUR ID HERE!') {
@@ -28,15 +27,12 @@ bot.on('message', (message) => {
 	} catch (e) {
 		console.log(e + '\n');
 	}
-
 })
 
 console.log('Commands loaded √')
 
-// "When bot is online" function
 bot.on('ready', () => {
     console.log('<== MODULAR BOT ONLINE ==>')
 })
 
-// Logs in via Token (Set in the settings.json file)
 bot.login(settings.bottoken)
