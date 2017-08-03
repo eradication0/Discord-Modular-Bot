@@ -6,33 +6,54 @@ const settings = require('./settings.json') // Settings file
 const fs = require('fs') // Filesystem npm Package
 const bot = new discord.Client() // Creating a new bot instance
 
-console.log('Setup √')
-
 bot.on('message', (message) => {
-	if (message.author.id === bot.user.id) return // Bot should not listen to himself
+
+	// Disables bot to listen to himself
+	if (message.author.id === bot.user.id) return
+
+	// ------------- EVAL START ------------
+
+	// overrides all other commands
+	// limited to a spcific user (using the user ID)
+
 	if (message.content.startsWith('.eval') && message.author.id === 'YOUR ID HERE!') {
 		try {
 			const com = eval(message.content.split(" ").slice(1).join(" "))
-			message.channel.sendMessage('```\n' + com + '```')
+			message.channel.send('```\n' + com + '```')
 		} catch (e) {
-			message.channel.sendMessage('```\n' + e + '```')
+			message.channel.send('```\n' + e + '```')
 		}
 	}
-	if (!message.content.startsWith(settings.prefix)) return // Bot only executes command if the right prefix is used
-	const args = message.content.split(' '); // Splits message parts into arguments
-	const command = args.shift().slice(settings.prefix.length); // Deletes the prefix in the command variable
+
+	// ------------- EVAL END --------------
+
+
+	// Bot only executes command if the right prefix is used
+	if (!message.content.startsWith(settings.prefix)) return
+
+	// Splits message parts into arguments
+	const args = message.content.split(' ');
+
+	// Deletes the prefix in the command variable
+	const command = args.shift().slice(settings.prefix.length);
 	try {
-		let cmdFile = require('./commands/' + command); // requires all files in the commands folder
-		cmdFile.run(bot, message, args); // Runs the command
+
+		// looks for all command files
+		let cmdFile = require('./commands/' + command);
+
+		// Runs the command
+		cmdFile.run(discord, bot, message, args);
+
+	// catching errors
 	} catch (e) {
 		console.log(e + '\n');
 	}
 })
 
-console.log('Commands loaded √')
-
+// When bot is ready
 bot.on('ready', () => {
     console.log('<== MODULAR BOT ONLINE ==>')
 })
 
+// bot login using the token provided in the settings file
 bot.login(settings.bottoken)

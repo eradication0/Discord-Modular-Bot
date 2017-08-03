@@ -1,3 +1,3 @@
-exports.run = function(bot, message, args) {
+exports.run = function(discord, bot, message, args) {
 		// Your Code Here
 }
