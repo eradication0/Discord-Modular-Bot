@@ -1,6 +1,6 @@
-# Zer0's Simple Bot Setup
+# Zer0's Bot Setup
 
-Zer0 Simple Bot Setup is made to create a simple and easy bot from a clean template. Everything is documented and some example commands are already included. The whole thing made to be "ready to create commands".
+Zer0's Bot Setup is made to create a simple and easy bot from a clean template. Everything is documented and some example commands are already included. The whole thing made to be "ready to create commands".
 
 ## Installation
 1. Clone the repo
